@@ -1,0 +1,46 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "productName": "Haptics Example",
+  "identifier": "com.entro314labs.tauri-macos-haptics",
+  "build": {
+    "beforeDevCommand": "cd /Users/dominikospritis/DevFolder/tauri-macos-haptics/example && pnpm dev",
+    "devUrl": "http://localhost:3000",
+    "beforeBuildCommand": "cd /Users/dominikospritis/DevFolder/tauri-macos-haptics/example && pnpm build",
+    "frontendDist": "../.output/public"
+  },
+  "plugins": {},
+  "app": {
+    "windows": [
+      {
+        "title": "macOS Haptics Plugin",
+        "hiddenTitle": true,
+        "width": 900,
+        "height": 700,
+        "resizable": false,
+        "zoomHotkeysEnabled": true,
+        "windowEffects": {
+          "effects": ["hudWindow"]
+        },
+        "titleBarStyle": "Overlay"
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "withGlobalTauri": false
+  },
+  "bundle": {
+    "macOS": {
+      "signingIdentity": "-"
+    },
+    "active": true,
+    "targets": ["app"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
