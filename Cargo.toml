@@ -9,8 +9,8 @@ homepage = "https://github.com/entro314-labs/tauri-macos-haptics"
 readme = "README.md"
 keywords = ["tauri", "macos", "haptics", "taptic", "plugin"]
 categories = ["os::macos-apis", "gui", "api-bindings"]
-edition = "2024"
-rust-version = "1.93"
+edition = "2021"
+rust-version = "1.77"
 exclude = ["/example", "/dist-js", "/guest-js", "/node_modules"]
 links = "tauri-macos-haptics"
 

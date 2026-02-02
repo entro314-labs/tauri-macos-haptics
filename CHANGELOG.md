@@ -14,7 +14,7 @@ Major modernization update bringing the plugin up to date with the latest Tauri 
   - This provides better type safety, improved memory management, and active maintenance
 
 ### Minimum Requirements
-- **Rust**: Upgraded from 1.70 to 1.93+ (Rust 2024 edition)
+- **Rust**: Upgraded from 1.70 to 1.77+ (Rust 2021 edition)
 - **Tauri**: Upgraded from 2.0.0 to 2.9+
 - **macOS**: Still supports 10.11+ (no change)
 
@@ -40,7 +40,7 @@ Major modernization update bringing the plugin up to date with the latest Tauri 
 ### Rust Codebase
 - ✅ Migrated to modern `objc2` framework (0.6) and `objc2-app-kit` (0.3)
 - ✅ Updated to Tauri 2.9.5 (from 2.0.0)
-- ✅ Updated to Rust 2024 edition with minimum version 1.93
+- ✅ Updated to Rust 2021 edition with minimum version 1.77
 - ✅ Improved type safety throughout
 - ✅ Better error handling with proper Result types
 - ✅ Removed unnecessary unsafe blocks

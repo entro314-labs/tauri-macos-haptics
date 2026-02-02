@@ -5,7 +5,7 @@ description = "Quantum template: with batteries included."
 authors = ["you"]
 license = ""
 repository = "https://github.com/entro314-labs/tauri-macos-haptics"
-edition = "2024"
+edition = "2021"
 publish = false
 
 [lib]

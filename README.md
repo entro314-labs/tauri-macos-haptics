@@ -15,7 +15,7 @@ Modern macOS haptics (Taptic Engine™️) plugin for Tauri v2 apps.
 - 🎯 **Type-Safe**: Modern `objc2` framework with full type safety
 - ⚡ **Latest Tauri**: Built for Tauri 2.9+ with all modern features
 - 📱 **Complete API**: All 3 NSHapticFeedbackPattern types supported
-- 🦀 **Modern Rust**: Uses Rust 1.93+ with 2024 edition
+- 🦀 **Modern Rust**: Uses Rust 1.77+ with 2021 edition
 - 📝 **Well Documented**: Comprehensive inline documentation and examples
 - 🔒 **Robust Error Handling**: Proper error types and handling throughout
 
@@ -182,11 +182,20 @@ Ideally, visual feedback, such as a highlight or appearance of an alignment guid
 
 [Learn more about NSHapticFeedbackManager (Apple's documentation)](https://developer.apple.com/documentation/appkit/nshapticfeedbackmanager)
 
+## Example App (Tauri)
+
+The example app lives in the `example/` folder and is not published to npm. It’s the fastest way to see the plugin in action with a native-looking UI.
+
+```bash
+pnpm install
+pnpm run-example
+```
+
 ## System Requirements
 
 - **macOS**: 10.11 (OS X El Capitan) or later
 - **Hardware**: Force Touch trackpad or compatible haptic hardware
-- **Rust**: 1.93 or later (Rust 2024 edition)
+- **Rust**: 1.77 or later (Rust 2021 edition)
 - **Tauri**: 2.9 or later
 
 ## What's New in 2.0

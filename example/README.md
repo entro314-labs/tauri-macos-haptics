@@ -21,7 +21,7 @@ This example app showcases all the core features of the macOS Haptics plugin:
 
 - **macOS**: 10.11 (OS X El Capitan) or later
 - **Hardware**: Force Touch trackpad or compatible haptic hardware
-- **Rust**: 1.93 or later (Rust 2024 edition)
+- **Rust**: 1.77 or later (Rust 2021 edition)
 - **Tauri**: 2.9 or later
 - **Node.js**: 18+ recommended
 
@@ -217,7 +217,7 @@ This grants access to:
 
 1. **Clean Build**: `cargo clean && pnpm tauri build`
 2. **Update Dependencies**: `cargo update && pnpm update`
-3. **Check Rust Version**: `rustc --version` (should be 1.93+)
+3. **Check Rust Version**: `rustc --version` (should be 1.77+)
 
 ## Contributing
 
