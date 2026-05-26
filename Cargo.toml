@@ -1,6 +1,6 @@
 [package]
 name = "tauri-macos-haptics"
-version = "2.0.0"
+version = "2.0.1"
 authors = ["Entro314 Labs"]
 license = "MIT"
 description = "Modern macOS haptics (Taptic Engine) plugin for Tauri v2 apps with objc2 bindings."
