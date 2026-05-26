@@ -1,6 +1,6 @@
 {
   "name": "tauri-macos-haptics-api",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "author": "Entro314 Labs",
   "contributors": [
     "ItsEeleeya"
@@ -20,20 +20,27 @@
   },
   "description": "Modern macOS haptics (Taptic Engine) plugin for Tauri v2 apps with objc2 bindings.",
   "type": "module",
-  "types": "./dist-js/index.d.ts",
+  "types": "./dist-js/index.d.mts",
   "main": "./dist-js/index.cjs",
-  "module": "./dist-js/index.js",
+  "module": "./dist-js/index.mjs",
   "exports": {
-    "types": "./dist-js/index.d.ts",
-    "import": "./dist-js/index.js",
-    "require": "./dist-js/index.cjs"
+    ".": {
+      "import": {
+        "types": "./dist-js/index.d.mts",
+        "default": "./dist-js/index.mjs"
+      },
+      "require": {
+        "types": "./dist-js/index.d.cts",
+        "default": "./dist-js/index.cjs"
+      }
+    }
   },
   "files": [
     "dist-js",
     "README.md"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsdown",
     "prepublishOnly": "npm run build",
     "pretest": "npm run build",
     "dev": "pnpm run build && cd example && pnpm tauri dev",
@@ -44,10 +51,8 @@
     "@tauri-apps/api": "^2.11.0"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^12.3.0",
     "@tailwindcss/postcss": "^4.3.0",
-    "rollup": "^4.60.4",
-    "tslib": "^2.8.1",
+    "tsdown": "^0.22.0",
     "typescript": "^6.0.3"
   }
 }
