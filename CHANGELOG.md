@@ -1,4 +1,4 @@
-# CHANGELOG - Version 2.0.0
+# CHANGELOG - Version 2.0.1
 
 ## Release Date
 February 1, 2026

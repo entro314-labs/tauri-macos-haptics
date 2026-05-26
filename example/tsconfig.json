@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
       "@/*": ["./src/*"]
     },
-    "target": "ES2022",
+    "target": "esnext",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
 
     /* Bundler mode */
