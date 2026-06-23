@@ -4,3 +4,4 @@ allowBuilds:
 ignoredBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
+minimumReleaseAge: 0

@@ -25,7 +25,7 @@
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.1",
     "tailwindcss-animate": "^1.0.7",
-    "tauri-macos-haptics-api": "link:..",
+    "tauri-macos-haptics-api": "2.0.3",
     "vinxi": "^0.5.11"
   },
   "devDependencies": {
