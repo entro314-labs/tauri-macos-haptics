@@ -1,6 +1,6 @@
 {
   "name": "tauri-macos-haptics-api",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "author": "Entro314 Labs",
   "contributors": [
     "ItsEeleeya"
@@ -51,8 +51,8 @@
     "@tauri-apps/api": "^2.11.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.1",
-    "@typescript/native-preview": "^7.0.0-dev.20260623.1",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "tsdown": "^0.22.3"
   }
 }
