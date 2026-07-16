@@ -1,3 +1,27 @@
+# CHANGELOG - Version 3.0.0
+
+## Release Date
+July 16, 2026
+
+## Overview
+Toolchain and dependency modernization release. No user-facing API changes.
+
+## Changes
+
+### Minimum Requirements
+- **Rust**: 1.97.0 (edition 2024)
+
+### Dependencies
+- `objc2` 0.6.4, `objc2-app-kit` 0.3.2
+- Example app dependencies refreshed (Vite 8.1.5, TypeScript RC, Tailwind 4.3)
+
+### Fixes
+- Fixed the `init()` doc example so `cargo test --doc` passes (it previously
+  tried to compile `tauri::generate_context!` without a `tauri.conf.json`)
+- Resolved the `clippy::needless_doctest_main` warning
+
+---
+
 # CHANGELOG - Version 2.0.1
 
 ## Release Date

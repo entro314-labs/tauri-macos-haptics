@@ -14,18 +14,16 @@ pub mod haptics;
 ///
 /// # Example
 /// ```rust,no_run
-/// fn main() {
-///     let mut builder = tauri::Builder::default();
+/// let mut builder = tauri::Builder::<tauri::Wry>::new();
 ///
-///     #[cfg(target_os = "macos")]
-///     {
-///         builder = builder.plugin(tauri_macos_haptics::init());
-///     }
-///
-///     builder
-///         .run(tauri::generate_context!())
-///         .expect("error while running tauri application");
+/// #[cfg(target_os = "macos")]
+/// {
+///     builder = builder.plugin(tauri_macos_haptics::init());
 /// }
+///
+/// // Then run as usual:
+/// // builder.run(tauri::generate_context!()).expect("error while running tauri application");
+/// # let _ = builder;
 /// ```
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
     Builder::new("tauri-macos-haptics")
