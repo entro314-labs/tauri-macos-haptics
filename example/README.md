@@ -23,7 +23,7 @@ This example app showcases all the core features of the macOS Haptics plugin:
 - **Hardware**: Force Touch trackpad or compatible haptic hardware
 - **Rust**: 1.77 or later (Rust 2021 edition)
 - **Tauri**: 2.9 or later
-- **Node.js**: 18+ recommended
+- **Node.js**: 24.19.0+ recommended
 
 ## Running the Example
 
