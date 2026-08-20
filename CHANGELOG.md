@@ -187,3 +187,12 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 - Publish to crates.io and npm
 - Add more examples
 - Consider adding debug logging capabilities
+
+## [3.2.0] - 2026-08-20
+
+### Added
+- macOS trackpad haptic feedback: Rust commands plus the TypeScript bindings and types for triggering feedback patterns from a Tauri app. ([bfec38f](https://github.com/entro314-labs/tauri-macos-haptics/commit/bfec38f))
+### Changed
+- The crate now requires Rust 1.97.1 or newer and builds on edition 2021; Node.js 24.19.0 or newer is recommended for the JavaScript package. ([d1fdba4](https://github.com/entro314-labs/tauri-macos-haptics/commit/d1fdba4), [1ac235c](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ac235c))
+- The JavaScript package is now emitted with an `esnext` target, so consumers on older bundlers or runtimes may need to transpile it themselves. ([0e6cab4](https://github.com/entro314-labs/tauri-macos-haptics/commit/0e6cab4))
+- The documented setup example uses the current `tauri::Builder` registration syntax. ([a601f6d](https://github.com/entro314-labs/tauri-macos-haptics/commit/a601f6d))
