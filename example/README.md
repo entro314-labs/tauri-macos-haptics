@@ -64,7 +64,7 @@ If you prefer to run steps manually:
 
 ## Project Structure
 
-```
+```tree
 example/
 ├── src/                      # SolidStart frontend code
 │   ├── routes/
