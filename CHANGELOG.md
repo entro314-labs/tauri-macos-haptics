@@ -188,6 +188,12 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 - Add more examples
 - Consider adding debug logging capabilities
 
+## [3.2.1] - 2026-09-26
+
+### Changed
+
+- The minimum supported Rust version is now 1.98.1, up from 1.98.0. Projects built with Rust 1.98.0 need to update their toolchain before upgrading. ([8f9058f](https://github.com/entro314-labs/tauri-macos-haptics/commit/8f9058f))
+
 ## [3.2.0] - 2026-08-20
 
 ### Added
@@ -196,3 +202,6 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 - The crate now requires Rust 1.97.1 or newer and builds on edition 2021; Node.js 24.19.0 or newer is recommended for the JavaScript package. ([d1fdba4](https://github.com/entro314-labs/tauri-macos-haptics/commit/d1fdba4), [1ac235c](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ac235c))
 - The JavaScript package is now emitted with an `esnext` target, so consumers on older bundlers or runtimes may need to transpile it themselves. ([0e6cab4](https://github.com/entro314-labs/tauri-macos-haptics/commit/0e6cab4))
 - The documented setup example uses the current `tauri::Builder` registration syntax. ([a601f6d](https://github.com/entro314-labs/tauri-macos-haptics/commit/a601f6d))
+
+[3.2.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/entro314-labs/tauri-macos-haptics/releases/tag/v3.2.0
