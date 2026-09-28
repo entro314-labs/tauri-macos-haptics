@@ -18,10 +18,8 @@
         "height": 700,
         "resizable": false,
         "zoomHotkeysEnabled": true,
-        "windowEffects": {
-          "effects": ["hudWindow"]
-        },
-        "titleBarStyle": "Overlay"
+        "titleBarStyle": "Overlay",
+        "trafficLightPosition": { "x": 15, "y": 24 }
       }
     ],
     "security": {
