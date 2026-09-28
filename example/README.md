@@ -52,9 +52,10 @@ If you prefer to run steps manually:
    pnpm build
    ```
 
-3. **Navigate to example and run**:
+3. **Install the example's dependencies and run it** (the example links the locally built bindings from step 2):
    ```sh
    cd example
+   pnpm install
    pnpm tauri dev
    ```
 
