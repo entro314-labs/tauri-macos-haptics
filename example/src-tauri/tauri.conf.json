@@ -3,9 +3,9 @@
   "productName": "Haptics Example",
   "identifier": "com.entro314labs.tauri-macos-haptics",
   "build": {
-    "beforeDevCommand": "cd /Users/dominikospritis/DevFolder/tauri-macos-haptics/example && pnpm dev",
-    "devUrl": "http://localhost:3000",
-    "beforeBuildCommand": "cd /Users/dominikospritis/DevFolder/tauri-macos-haptics/example && pnpm build",
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
     "frontendDist": "../.output/public"
   },
   "plugins": {},

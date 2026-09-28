@@ -134,7 +134,7 @@ if (supported) {
 
 ### SolidJS + SolidStart
 - Modern reactive framework with excellent TypeScript support
-- Vinxi for optimized builds
+- SolidStart 2 on Vite 8, prerendered to static files by Nitro for the Tauri webview
 - File-based routing
 
 ### Tailwind CSS v4

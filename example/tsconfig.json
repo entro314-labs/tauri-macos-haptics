@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "paths": {
-      "~/*": ["src/*"],
+      "~/*": ["./src/*"],
       "@/*": ["./src/*"]
     },
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
+    "types": ["@solidjs/start/env"],
     "skipLibCheck": true,
 
     /* Bundler mode */
