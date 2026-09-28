@@ -69,7 +69,10 @@ export default function StepSlider(props: {
           {/* Value indicator */}
           <div
             class="pointer-events-none absolute -top-10 left-0 -translate-x-1/2 transform transition-all duration-200"
-            style={{ left: `${percentage()}%` }}
+            style={{
+              // The thumb centre travels between half a thumb width from either end.
+              left: `calc(var(--slider-thumb-size) / 2 + (100% - var(--slider-thumb-size)) * ${percentage() / 100})`,
+            }}
           >
             <div class="slider-bubble">{sliderValue()}</div>
             <div class="slider-bubble-arrow" />
@@ -78,7 +81,7 @@ export default function StepSlider(props: {
           <div class="slider-marker-row">
             <For each={generateSteps()}>
               {(step) => (
-                <div class="flex flex-col items-center gap-1">
+                <div class="slider-marker-step">
                   <div
                     class="slider-marker"
                     classList={{
