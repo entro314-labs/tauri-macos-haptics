@@ -79,13 +79,28 @@ test("isSupported() returns the backend result and caches it", async () => {
   assert.deepEqual(calls, ["plugin:tauri-macos-haptics|is_supported"]);
 });
 
-test("isSupported() resolves false when the plugin command is unreachable", async (t) => {
-  t.mock.method(console, "warn", () => {});
-  mockIPC(() => {
-    throw "plugin tauri-macos-haptics not found";
-  });
+test("isSupported() resolves false when the backend reports no support", async () => {
+  mockIPC(() => false);
   const { isSupported } = await load();
 
   assert.equal(await isSupported(), false);
-  assert.equal(console.warn.mock.callCount(), 1);
+});
+
+test("isSupported() rejects with HapticError and retries when the command fails", async () => {
+  let fail = true;
+  mockIPC(() => {
+    if (fail) throw "tauri-macos-haptics.is_supported not allowed";
+    return true;
+  });
+  const { isSupported, HapticError } = await load();
+
+  await assert.rejects(isSupported(), (error) => {
+    assert.ok(error instanceof HapticError);
+    assert.match(error.message, /not allowed/);
+    assert.equal(error.cause, "tauri-macos-haptics.is_supported not allowed");
+    return true;
+  });
+
+  fail = false;
+  assert.equal(await isSupported(), true);
 });

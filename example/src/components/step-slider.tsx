@@ -15,14 +15,16 @@ export default function StepSlider(props: {
   const [sliderValue, setSliderValue] = createSignal(props.initialValue ?? props.min);
   const [isDragging, setIsDragging] = createSignal(false);
 
-  const updateSlider = async (event: InputEvent) => {
+  const updateSlider = (event: InputEvent) => {
     const target = event.target as HTMLInputElement;
     const value = parseInt(target.value);
 
-    if (isDragging() && (await isSupported()) && sliderValue() !== value) {
-      perform(HapticFeedbackPattern.Alignment, PerformanceTime.Now).catch((err) =>
-        console.error("Slider haptic error:", err)
-      );
+    if (isDragging() && sliderValue() !== value) {
+      isSupported()
+        .then((supported) => {
+          if (supported) return perform(HapticFeedbackPattern.Alignment, PerformanceTime.Now);
+        })
+        .catch((err) => console.error("Slider haptic error:", err));
     }
 
     setSliderValue(value);

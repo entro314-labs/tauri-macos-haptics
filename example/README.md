@@ -85,18 +85,9 @@ example/
 
 ```rust
 // src-tauri/src/lib.rs
-use tauri::Builder;
-use tauri_macos_haptics;
-
 pub fn run() {
-    let mut builder = Builder::default();
-
-    #[cfg(target_os = "macos")]
-    {
-        builder = builder.plugin(tauri_macos_haptics::init());
-    }
-
-    builder
+    tauri::Builder::default()
+        .plugin(tauri_macos_haptics::init())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

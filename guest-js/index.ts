@@ -141,8 +141,11 @@ export class HapticError extends Error {
  * It reports platform support only: macOS has no public API to detect a
  * Force Touch trackpad, so the result does not reflect the attached hardware.
  *
- * @returns A promise that resolves to `true` on macOS with the plugin registered,
- * `false` on other platforms or when the plugin command cannot be reached.
+ * @returns A promise that resolves to `true` on macOS and `false` on other platforms.
+ *
+ * @throws {HapticError} If the plugin command cannot be reached, for example because the
+ * plugin is not registered or the `tauri-macos-haptics:default` permission is missing.
+ * A failed check is not cached, so the next call asks again.
  *
  * @example
  * ```typescript
@@ -167,8 +170,10 @@ export async function isSupported(): Promise<boolean> {
     try {
       pluginSupported = await invoke<boolean>(CMD_IS_SUPPORTED);
     } catch (error) {
-      pluginSupported = false;
-      console.warn("Failed to check haptic support:", error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      throw new HapticError(`Failed to check haptic support: ${errorMessage}`, {
+        cause: error,
+      });
     }
   }
   return pluginSupported;

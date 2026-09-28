@@ -14,12 +14,8 @@ pub mod haptics;
 ///
 /// # Example
 /// ```rust,no_run
-/// let mut builder = tauri::Builder::<tauri::Wry>::new();
-///
-/// #[cfg(target_os = "macos")]
-/// {
-///     builder = builder.plugin(tauri_macos_haptics::init());
-/// }
+/// // Register on every platform; the commands report non-macOS systems as unsupported.
+/// let builder = tauri::Builder::<tauri::Wry>::new().plugin(tauri_macos_haptics::init());
 ///
 /// // Then run as usual:
 /// // builder.run(tauri::generate_context!()).expect("error while running tauri application");

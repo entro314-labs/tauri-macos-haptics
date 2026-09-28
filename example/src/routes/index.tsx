@@ -14,7 +14,7 @@ export default function () {
   const [volume, setVolume] = createSignal(5);
   const [supported, setSupported] = createSignal(false);
   const [supportStatus, setSupportStatus] = createSignal<
-    "checking" | "supported" | "unsupported"
+    "checking" | "supported" | "unsupported" | "error"
   >("checking");
 
   const refreshSupport = async () => {
@@ -27,13 +27,14 @@ export default function () {
     } catch (err) {
       console.error("Failed to check haptics support:", err);
       setSupported(false);
-      setSupportStatus("unsupported");
+      setSupportStatus("error");
       return false;
     }
   };
 
   const ensureSupport = async () => {
-    if (supportStatus() === "checking") {
+    // A failed check is not cached by the plugin, so retry it on the next interaction.
+    if (supportStatus() === "checking" || supportStatus() === "error") {
       await refreshSupport();
     }
     return supported();
@@ -108,6 +109,11 @@ export default function () {
               <div class="status-dot muted" />
               <span>Not Available</span>
             </div>
+          ) : supportStatus() === "error" ? (
+            <div class="status-row">
+              <div class="status-dot muted" />
+              <span>Check Failed</span>
+            </div>
           ) : (
             <div class="status-row">
               <div class="status-dot muted" />
@@ -117,6 +123,11 @@ export default function () {
           {supportStatus() === "supported" && (
             <p class="status-note">
               Touch trackpad while interacting
+            </p>
+          )}
+          {supportStatus() === "error" && (
+            <p class="status-note">
+              Details in the developer console; retried on the next interaction
             </p>
           )}
         </div>

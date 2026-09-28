@@ -30,14 +30,14 @@ cargo add tauri-macos-haptics
 Or add it manually to `Cargo.toml`:
 
 ```toml
-[target.'cfg(target_os = "macos")'.dependencies]
-tauri-macos-haptics = "3"
+[dependencies]
+tauri-macos-haptics = "4"
 ```
 
 Or get the latest from git:
 
 ```toml
-[target.'cfg(target_os = "macos")'.dependencies]
+[dependencies]
 tauri-macos-haptics = { git = "https://github.com/entro314-labs/tauri-macos-haptics" }
 ```
 
@@ -57,19 +57,14 @@ yarn add tauri-macos-haptics-api
 
 ### 1. Initialize the plugin
 
-This is required to use the plugin from the frontend.
+This is required to use the plugin from the frontend. Register it on every platform:
+the crate builds everywhere, and on platforms other than macOS `isSupported()` resolves
+`false` and `perform()` rejects, so the frontend needs no platform checks of its own.
 
 ```rust
 fn main() {
-  let mut builder = tauri::Builder::default();
-
-  #[cfg(target_os = "macos")]
-  {
-    // Initialize the haptics plugin
-    builder = builder.plugin(tauri_macos_haptics::init());
-  }
-
-  builder
+  tauri::Builder::default()
+    .plugin(tauri_macos_haptics::init())
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }

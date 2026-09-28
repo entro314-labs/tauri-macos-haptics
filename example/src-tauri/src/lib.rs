@@ -5,14 +5,8 @@ const TRAFFIC_LIGHT_INSET_X: f32 = 15.0;
 const TRAFFIC_LIGHT_INSET_Y: f32 = 18.0;
 
 pub fn run() {
-    let mut builder = tauri::Builder::default();
-
-    #[cfg(target_os = "macos")]
-    {
-        builder = builder.plugin(tauri_macos_haptics::init());
-    }
-
-    builder
+    tauri::Builder::default()
+        .plugin(tauri_macos_haptics::init())
         .plugin(tauri_plugin_shell::init())
         .setup(move |app| {
             if let Some(window) = app.get_webview_window("main") {
