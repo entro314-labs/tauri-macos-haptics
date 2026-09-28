@@ -46,9 +46,6 @@ export default function StepSlider(props: {
   return (
     <div class="slider-stack">
       <div class="slider-row">
-        <span class="slider-label text-right">
-          {props.min}
-        </span>
         <div class="slider-track">
           <input
             type="range"
@@ -79,33 +76,30 @@ export default function StepSlider(props: {
             </div>
             <div class="slider-bubble-arrow" />
           </div>
+          {/* Step markers */}
+          <div class="slider-marker-row">
+            <For each={generateSteps()}>
+              {(step) => (
+                <div class="flex flex-col items-center gap-1">
+                  <div
+                    class="slider-marker"
+                    classList={{
+                      active: sliderValue() >= step,
+                    }}
+                  />
+                  <span
+                    class="slider-marker-label"
+                    classList={{
+                      active: sliderValue() === step,
+                    }}
+                  >
+                    {step}
+                  </span>
+                </div>
+              )}
+            </For>
+          </div>
         </div>
-        <span class="slider-label text-left">
-          {props.max}
-        </span>
-      </div>
-      {/* Step markers */}
-      <div class="slider-marker-row">
-        <For each={generateSteps()}>
-          {(step) => (
-            <div class="flex flex-col items-center gap-1">
-              <div
-                class="slider-marker"
-                classList={{
-                  active: sliderValue() >= step,
-                }}
-              />
-              <span
-                class="slider-marker-label"
-                classList={{
-                  active: sliderValue() === step,
-                }}
-              >
-                {step}
-              </span>
-            </div>
-          )}
-        </For>
       </div>
     </div>
   );

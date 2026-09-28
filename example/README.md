@@ -153,7 +153,7 @@ strip = true      # Remove debug symbols
 ```
 
 These settings result in:
-- Smaller binary size (~2-3MB on macOS)
+- A ~4 MB app bundle on macOS
 - Faster startup time
 - Reduced memory footprint
 
