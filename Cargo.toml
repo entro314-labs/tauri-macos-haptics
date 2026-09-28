@@ -11,7 +11,18 @@ keywords = ["tauri", "macos", "haptics", "taptic", "plugin"]
 categories = ["os::macos-apis", "gui", "api-bindings"]
 edition = "2024"
 rust-version = "1.98.1"
-exclude = ["/example", "/dist-js", "/guest-js", "/node_modules", "/test"]
+exclude = [
+  "/example",
+  "/dist-js",
+  "/guest-js",
+  "/node_modules",
+  "/test",
+  "/package.json",
+  "/pnpm-lock.yaml",
+  "/pnpm-workspace.yaml",
+  "/tsconfig.json",
+  "/tsdown.config.ts",
+]
 links = "tauri-macos-haptics"
 
 [dependencies]
