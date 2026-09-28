@@ -7,16 +7,16 @@ share one version.
 
 ## [Unreleased]
 
-### Added
-
-- `HapticError` keeps the original IPC error as its `cause`.
-
 ### Changed (breaking)
 
 - Register the plugin on every platform (`[dependencies]`, `.plugin(tauri_macos_haptics::init())` without a `cfg` gate). On other platforms `isSupported()` resolves `false` from the backend and `perform()` rejects.
 - JavaScript: `isSupported()` rejects with a `HapticError` when the command cannot be reached (plugin not registered, permission missing) instead of logging a warning and caching `false`. A failed check is no longer cached. Apps that registered the plugin only on macOS must register it everywhere.
 - Rust: `HapticFeedbackManager::perform` returns `()` instead of a `Result` that could never be an error. Remove any `?`, `.expect()` or `.unwrap()` on the call.
 - Rust: `perform(pattern, None)` now plays at `PerformanceTime::Default` (the system chooses) instead of `Now`, the same default as the JavaScript `perform()`. Pass `Some(PerformanceTime::Now)` for the old timing.
+
+### Added
+
+- `HapticError` keeps the original IPC error as its `cause`.
 
 ### Changed
 
