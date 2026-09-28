@@ -188,6 +188,12 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 - Add more examples
 - Consider adding debug logging capabilities
 
+## [Unreleased]
+
+### Fixed
+
+- `perform` now rejects a pattern or performance time outside the documented values (for example `perform(7)`) with an error instead of silently playing `Generic` feedback at the `Default` time. In JavaScript the call rejects with a `HapticError`.
+
 ## [3.2.3] - 2026-09-26
 
 ### Fixed
