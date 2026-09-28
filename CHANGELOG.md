@@ -190,6 +190,10 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 
 ## [Unreleased]
 
+### Changed
+
+- The crate depends on `tauri` with `default-features = false`, matching the official Tauri plugins, so it no longer turns Tauri's default features (including the `wry` runtime) back on in apps that disable them. The unused `serde` dependency was removed.
+
 ### Fixed
 
 - `perform` now rejects a pattern or performance time outside the documented values (for example `perform(7)`) with an error instead of silently playing `Generic` feedback at the `Default` time. In JavaScript the call rejects with a `HapticError`.

@@ -15,12 +15,14 @@ exclude = ["/example", "/dist-js", "/guest-js", "/node_modules"]
 links = "tauri-macos-haptics"
 
 [dependencies]
-tauri = { version = "2" }
-serde = "1"
+tauri = { version = "2", default-features = false }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 objc2 = "0.6"
 objc2-app-kit = "0.3"
+
+[dev-dependencies]
+tauri = { version = "2", features = ["wry"] }
 
 [build-dependencies]
 tauri-plugin = { version = "2", features = ["build"] }
