@@ -61,6 +61,7 @@ test("perform() rejects with HapticError carrying the backend message", async ()
     assert.ok(error instanceof HapticError);
     assert.equal(error.name, "HapticError");
     assert.match(error.message, /Unknown haptic feedback pattern 7/);
+    assert.equal(error.cause, "Unknown haptic feedback pattern 7");
     return true;
   });
 });

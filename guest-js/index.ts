@@ -114,6 +114,8 @@ export enum PerformanceTime {
 /**
  * Custom error class for haptic feedback related errors.
  *
+ * The error returned by the Tauri IPC layer is kept as `cause`.
+ *
  * @example
  * ```typescript
  * try {
@@ -126,8 +128,8 @@ export enum PerformanceTime {
  * ```
  */
 export class HapticError extends Error {
-  constructor(message: string) {
-    super(message);
+  constructor(message: string, options?: ErrorOptions) {
+    super(message, options);
     this.name = "HapticError";
   }
 }
@@ -229,6 +231,8 @@ export async function perform(
     });
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    throw new HapticError(`Failed to perform haptic feedback: ${errorMessage}`);
+    throw new HapticError(`Failed to perform haptic feedback: ${errorMessage}`, {
+      cause: error,
+    });
   }
 }

@@ -190,6 +190,10 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 
 ## [Unreleased]
 
+### Added
+
+- `HapticError` keeps the original IPC error as its `cause`.
+
 ### Changed (breaking)
 
 - Rust: `HapticFeedbackManager::perform` returns `()` instead of a `Result` that could never be an error. Remove any `?`, `.expect()` or `.unwrap()` on the call.
