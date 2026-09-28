@@ -2,8 +2,9 @@
 
 :root {
   color-scheme: light dark;
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
-    "Helvetica Neue", "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue",
+    "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
   --app-bg: #f5f6f8;
   --app-bg-muted: #eef0f3;
   --surface: #ffffff;
@@ -143,7 +144,10 @@ body {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  transition: background 150ms ease, color 150ms ease, border-color 150ms ease,
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
     box-shadow 150ms ease;
 }
 
@@ -378,7 +382,9 @@ body {
   border: 1px solid var(--thumb-border);
   cursor: pointer;
   box-shadow: var(--thumb-shadow);
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
 }
 
 .slider::-webkit-slider-thumb:hover {
@@ -397,7 +403,9 @@ body {
   border: 1px solid var(--thumb-border);
   cursor: pointer;
   box-shadow: var(--thumb-shadow);
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
 }
 
 .slider::-moz-range-thumb:hover {
@@ -464,7 +472,10 @@ body {
   width: 2.75rem;
   align-items: center;
   border-radius: 9999px;
-  transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
   background-color: var(--track-bg);
   border: 1px solid var(--surface-border);
   cursor: pointer;
@@ -515,7 +526,10 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   box-shadow: var(--control-shadow);
-  transition: background 150ms ease, transform 120ms ease, box-shadow 150ms ease;
+  transition:
+    background 150ms ease,
+    transform 120ms ease,
+    box-shadow 150ms ease;
   cursor: pointer;
   border: 1px solid var(--surface-border);
 }
@@ -545,7 +559,10 @@ body {
   font-weight: 600;
   font-size: 0.8rem;
   letter-spacing: 0.01em;
-  transition: background 150ms ease, transform 120ms ease, box-shadow 150ms ease,
+  transition:
+    background 150ms ease,
+    transform 120ms ease,
+    box-shadow 150ms ease,
     border-color 150ms ease;
   box-shadow: var(--control-shadow);
   cursor: pointer;

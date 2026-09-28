@@ -86,9 +86,7 @@ export default function () {
         </div>
 
         <nav class="app-sidebar-nav">
-          <button class="sidebar-item active">
-            Patterns
-          </button>
+          <button class="sidebar-item active">Patterns</button>
           <button
             onClick={() => open("https://github.com/entro314-labs/tauri-macos-haptics")}
             class="sidebar-item"
@@ -121,9 +119,7 @@ export default function () {
             </div>
           )}
           {supportStatus() === "supported" && (
-            <p class="status-note">
-              Touch trackpad while interacting
-            </p>
+            <p class="status-note">Touch trackpad while interacting</p>
           )}
           {supportStatus() === "error" && (
             <p class="status-note">
@@ -163,9 +159,7 @@ export default function () {
                 <h3 class="app-panel-title">Level Change</h3>
                 <span class="app-panel-meta">Toggle Switch</span>
               </div>
-              <p class="app-panel-description">
-                Triggers when transitioning between states
-              </p>
+              <p class="app-panel-description">Triggers when transitioning between states</p>
             </div>
             <div class="app-panel-body app-center">
               <button
@@ -188,9 +182,7 @@ export default function () {
                 <h3 class="app-panel-title">Level Change</h3>
                 <span class="app-panel-meta">Stepper Control</span>
               </div>
-              <p class="app-panel-description">
-                Feedback for incrementing through discrete values
-              </p>
+              <p class="app-panel-description">Feedback for incrementing through discrete values</p>
             </div>
             <div class="app-panel-body">
               <div class="stepper-row">
@@ -204,12 +196,8 @@ export default function () {
                   −
                 </button>
                 <div class="stepper-value">
-                  <div class="stepper-value-number">
-                    {volume()}
-                  </div>
-                  <div class="stepper-value-label">
-                    Volume Level
-                  </div>
+                  <div class="stepper-value-number">{volume()}</div>
+                  <div class="stepper-value-label">Volume Level</div>
                 </div>
                 <button
                   type="button"
@@ -231,38 +219,20 @@ export default function () {
                 <h3 class="app-panel-title">Generic</h3>
                 <span class="app-panel-meta">Action Buttons</span>
               </div>
-              <p class="app-panel-description">
-                General-purpose feedback for any user action
-              </p>
+              <p class="app-panel-description">General-purpose feedback for any user action</p>
             </div>
             <div class="app-panel-body">
               <div class="app-button-row">
-                <button
-                  type="button"
-                  class="action-button primary"
-                  onClick={handleButtonClick}
-                >
+                <button type="button" class="action-button primary" onClick={handleButtonClick}>
                   Primary Action
                 </button>
-                <button
-                  type="button"
-                  class="action-button secondary"
-                  onClick={handleButtonClick}
-                >
+                <button type="button" class="action-button secondary" onClick={handleButtonClick}>
                   Secondary
                 </button>
-                <button
-                  type="button"
-                  class="action-button success"
-                  onClick={handleButtonClick}
-                >
+                <button type="button" class="action-button success" onClick={handleButtonClick}>
                   Success
                 </button>
-                <button
-                  type="button"
-                  class="action-button danger"
-                  onClick={handleButtonClick}
-                >
+                <button type="button" class="action-button danger" onClick={handleButtonClick}>
                   Danger
                 </button>
               </div>

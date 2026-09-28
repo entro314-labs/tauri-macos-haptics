@@ -37,7 +37,7 @@ export default function StepSlider(props: {
   const generateSteps = () => {
     return Array.from(
       { length: (props.max - props.min) / props.step + 1 },
-      (_, i) => props.min + i * props.step,
+      (_, i) => props.min + i * props.step
     );
   };
 
@@ -68,12 +68,10 @@ export default function StepSlider(props: {
           />
           {/* Value indicator */}
           <div
-            class="absolute -top-10 left-0 transform -translate-x-1/2 pointer-events-none transition-all duration-200"
+            class="pointer-events-none absolute -top-10 left-0 -translate-x-1/2 transform transition-all duration-200"
             style={{ left: `${percentage()}%` }}
           >
-            <div class="slider-bubble">
-              {sliderValue()}
-            </div>
+            <div class="slider-bubble">{sliderValue()}</div>
             <div class="slider-bubble-arrow" />
           </div>
           {/* Step markers */}

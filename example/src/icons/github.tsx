@@ -1,10 +1,6 @@
 export default function Github(props: { class?: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 98 96"
-      class={props.class}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96" class={props.class}>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
