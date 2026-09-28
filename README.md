@@ -17,7 +17,7 @@ Modern macOS haptics (Taptic Engine™️) plugin for Tauri v2 apps.
 - 📱 **Complete API**: All 3 NSHapticFeedbackPattern types supported
 - 🦀 **Modern Rust**: Requires Rust 1.98.1+ (edition 2024)
 - 📝 **Well Documented**: Comprehensive inline documentation and examples
-- 🔒 **Robust Error Handling**: Proper error types and handling throughout
+- 🔒 **Explicit Errors**: Invalid arguments and unreachable commands reject with a `HapticError`
 
 ## Get the plugin
 
@@ -178,6 +178,7 @@ The example app lives in the `example/` folder and is not published to npm. It�
 
 ```bash
 pnpm install
+pnpm --dir example install
 pnpm example
 ```
 
@@ -203,9 +204,17 @@ pnpm install
 pnpm build
 ```
 
+### Testing
+
+```bash
+cargo test   # command argument validation and doctests
+pnpm test    # builds dist-js, then checks the bindings' IPC contract
+```
+
 ### Running the example
 
 ```bash
+pnpm --dir example install
 pnpm example
 ```
 
