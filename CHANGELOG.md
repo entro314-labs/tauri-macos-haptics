@@ -7,6 +7,13 @@ share one version.
 
 ## [Unreleased]
 
+## [4.0.1] - 2026-09-28
+
+### Fixed
+
+- The example app now sets a Content Security Policy instead of `csp: null`. It allows only the app's own assets, Tauri IPC and `data:` images. The plugin README points to this example, so its configuration can now be copied as a starting point. ([61175e4](https://github.com/entro314-labs/tauri-macos-haptics/commit/61175e4))
+- In the example app, the slider's step markers and value bubble now line up with the thumb across the whole track. ([af48d1b](https://github.com/entro314-labs/tauri-macos-haptics/commit/af48d1b))
+
 ## [4.0.0] - 2026-09-28
 
 ### Changed (breaking)
@@ -89,7 +96,8 @@ Modernization of the original `tauri-plugin-macos-haptics` for Tauri 2.
 - `HapticError` class for failures from the JavaScript API.
 - JSDoc and Rust doc comments for every public item.
 
-[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.1...HEAD
+[4.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.3...v4.0.0
 [3.2.3]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.1...v3.2.2
