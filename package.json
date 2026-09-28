@@ -43,6 +43,7 @@
     "build": "tsdown",
     "prepublishOnly": "npm run build",
     "pretest": "npm run build",
+    "test": "node --test \"test/*.test.mjs\"",
     "dev": "pnpm run build && cd example && pnpm tauri dev",
     "example": "pnpm run build && cd example && pnpm tauri dev",
     "example:build": "pnpm run build && cd example && pnpm tauri build"
