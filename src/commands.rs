@@ -86,6 +86,8 @@ pub async fn is_supported() -> bool {
 /// await perform(HapticFeedbackPattern.Generic, PerformanceTime.Now);
 /// ```
 #[command]
+// The arguments are only read on macOS; elsewhere the command always fails.
+#[cfg_attr(not(target_os = "macos"), allow(unused_variables))]
 pub async fn perform(pattern: u64, performance_time: u64) -> Result<(), String> {
     #[cfg(target_os = "macos")]
     {
@@ -146,5 +148,16 @@ mod tests {
             let result = tauri::async_runtime::block_on(perform(pattern, time));
             assert!(result.is_err(), "perform({pattern}, {time}) must fail");
         }
+    }
+}
+
+#[cfg(all(test, not(target_os = "macos")))]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn commands_report_unsupported_platform() {
+        assert!(!tauri::async_runtime::block_on(is_supported()));
+        assert!(tauri::async_runtime::block_on(perform(2, 0)).is_err());
     }
 }
