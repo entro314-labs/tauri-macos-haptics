@@ -91,9 +91,8 @@ pub async fn perform(pattern: u64, performance_time: u64) -> Result<(), String> 
     {
         let pattern = pattern_from_u64(pattern)?;
         let performance_time = performance_time_from_u64(performance_time)?;
-        HapticFeedbackManager::default_performer()
-            .perform(pattern, Some(performance_time))
-            .map_err(|e| e.to_string())
+        HapticFeedbackManager::default_performer().perform(pattern, Some(performance_time));
+        Ok(())
     }
 
     #[cfg(not(target_os = "macos"))]

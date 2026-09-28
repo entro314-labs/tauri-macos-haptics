@@ -19,9 +19,8 @@ pub use objc2_app_kit::NSHapticFeedbackPerformanceTime as PerformanceTime;
 ///     #[cfg(target_os = "macos")]
 ///     {
 ///         use tauri_macos_haptics::haptics::*;
-///         // Performs a generic haptic feedback immediately.
-///         let _ = HapticFeedbackManager::default_performer()
-///             .perform(HapticPattern::Generic, None);
+///         // Performs a generic haptic feedback at the time the system chooses.
+///         HapticFeedbackManager::default_performer().perform(HapticPattern::Generic, None);
 ///     }
 /// }
 /// ```
@@ -55,26 +54,21 @@ impl HapticFeedbackManager {
     ///
     /// # Arguments
     /// * `pattern` - The haptic feedback pattern to use (Alignment, LevelChange, or Generic)
-    /// * `performance_time` - When to perform the haptic feedback. If None, defaults to `Now`
+    /// * `performance_time` - When to perform the haptic feedback. If None, defaults to
+    ///   `Default` (the system chooses), matching the frontend `perform()` default
     ///
-    /// # Returns
-    /// A Result indicating success or an error if the operation failed.
+    /// AppKit reports no failure for this call: the system silently skips feedback it
+    /// cannot deliver, for example when the user is not touching the trackpad.
     ///
     /// # Example
     /// ```rust,no_run
     /// # use tauri_macos_haptics::haptics::*;
     /// let manager = HapticFeedbackManager::default_performer();
-    /// manager.perform(HapticPattern::Alignment, Some(PerformanceTime::Now))?;
-    /// # Ok::<(), tauri::Error>(())
+    /// manager.perform(HapticPattern::Alignment, Some(PerformanceTime::Now));
     /// ```
-    pub fn perform(
-        &self,
-        pattern: HapticPattern,
-        performance_time: Option<PerformanceTime>,
-    ) -> Result<(), tauri::Error> {
-        let ptime = performance_time.unwrap_or(PerformanceTime::Now);
+    pub fn perform(&self, pattern: HapticPattern, performance_time: Option<PerformanceTime>) {
+        let ptime = performance_time.unwrap_or(PerformanceTime::Default);
         self.performer
             .performFeedbackPattern_performanceTime(pattern, ptime);
-        Ok(())
     }
 }

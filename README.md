@@ -87,23 +87,18 @@ Usually found under `src-tauri/capabilities/*.json`
 #### From Rust:
 
 ```rust
-use tauri_macos_haptics::haptics::*;
-
 fn provide_feedback() {
+  // The `haptics` module only exists on macOS.
   #[cfg(target_os = "macos")]
   {
-    // Performs a generic haptic feedback immediately
-    HapticFeedbackManager::default_performer()
-      .perform(HapticPattern::Generic, None)
-      .expect("Failed to perform haptic feedback");
+    use tauri_macos_haptics::haptics::*;
+
+    // Generic feedback at the time the system chooses (`None` = `PerformanceTime::Default`)
+    HapticFeedbackManager::default_performer().perform(HapticPattern::Generic, None);
 
     // Or with specific timing
     HapticFeedbackManager::default_performer()
-      .perform(
-        HapticPattern::Alignment,
-        Some(PerformanceTime::DrawCompleted)
-      )
-      .expect("Failed to perform haptic feedback");
+      .perform(HapticPattern::Alignment, Some(PerformanceTime::DrawCompleted));
   }
 }
 ```

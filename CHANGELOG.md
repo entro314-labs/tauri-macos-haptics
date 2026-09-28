@@ -190,6 +190,11 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 
 ## [Unreleased]
 
+### Changed (breaking)
+
+- Rust: `HapticFeedbackManager::perform` returns `()` instead of a `Result` that could never be an error. Remove any `?`, `.expect()` or `.unwrap()` on the call.
+- Rust: `perform(pattern, None)` now plays at `PerformanceTime::Default` (the system chooses) instead of `Now`, the same default as the JavaScript `perform()`. Pass `Some(PerformanceTime::Now)` for the old timing.
+
 ### Changed
 
 - The crate depends on `tauri` with `default-features = false`, matching the official Tauri plugins, so it no longer turns Tauri's default features (including the `wry` runtime) back on in apps that disable them. The unused `serde` dependency was removed.
