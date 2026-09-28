@@ -13,9 +13,9 @@ Modern macOS haptics (Taptic Engine™️) plugin for Tauri v2 apps.
 ## Features
 
 - 🎯 **Type-Safe**: Modern `objc2` framework with full type safety
-- ⚡ **Latest Tauri**: Built for Tauri 2.9+ with all modern features
+- ⚡ **Tauri 2**: Built for Tauri v2 apps
 - 📱 **Complete API**: All 3 NSHapticFeedbackPattern types supported
-- 🦀 **Modern Rust**: Uses Rust 1.77+ with 2021 edition
+- 🦀 **Modern Rust**: Requires Rust 1.98.1+ (edition 2024)
 - 📝 **Well Documented**: Comprehensive inline documentation and examples
 - 🔒 **Robust Error Handling**: Proper error types and handling throughout
 
@@ -31,7 +31,7 @@ Or add it manually to `Cargo.toml`:
 
 ```toml
 [target.'cfg(target_os = "macos")'.dependencies]
-tauri-macos-haptics = "2.0"
+tauri-macos-haptics = "3"
 ```
 
 Or get the latest from git:
@@ -188,30 +188,15 @@ The example app lives in the `example/` folder and is not published to npm. It�
 
 ```bash
 pnpm install
-pnpm run-example
+pnpm example
 ```
 
 ## System Requirements
 
 - **macOS**: 10.11 (OS X El Capitan) or later
 - **Hardware**: Force Touch trackpad or compatible haptic hardware
-- **Rust**: 1.77 or later (Rust 2021 edition)
-- **Tauri**: 2.9 or later
-
-## What's New in 2.0
-
-### Breaking Changes
-- Migrated from legacy `objc`/`cocoa` to modern `objc2` framework
-- Updated minimum Rust version to 1.77
-- Renamed internal types (with backward-compatible aliases)
-
-### Improvements
-- ✨ Updated to Tauri 2.9 and latest dependencies
-- 🔒 Enhanced type safety with `objc2`
-- 📚 Comprehensive inline documentation
-- 🎯 Better error handling with `HapticError` type
-- ⚡ Improved performance and memory safety
-- 🧪 Better TypeScript types and JSDoc comments
+- **Rust**: 1.98.1 or later (edition 2024)
+- **Tauri**: 2
 
 ## Development
 
@@ -231,7 +216,7 @@ pnpm build
 ### Running the example
 
 ```bash
-pnpm run-example
+pnpm example
 ```
 
 ## Contributing

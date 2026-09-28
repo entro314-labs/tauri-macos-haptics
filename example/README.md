@@ -2,10 +2,6 @@
 
 This is a demonstration application showcasing the [tauri-macos-haptics](https://github.com/entro314-labs/tauri-macos-haptics) plugin in action with a modern SolidStart + Tauri setup.
 
-<p align="center">
-  <img src="plugin-demo.png" alt="Screenshot of the haptics example app" width="600" />
-</p>
-
 ## What This Example Demonstrates
 
 This example app showcases all the core features of the macOS Haptics plugin:
@@ -13,7 +9,7 @@ This example app showcases all the core features of the macOS Haptics plugin:
 - **Step Slider**: Demonstrates `HapticFeedbackPattern.Alignment` - provides haptic feedback when dragging to align with discrete step positions
 - **Toggle Switch**: Shows `HapticFeedbackPattern.LevelChange` - triggers haptic feedback when transitioning between on/off states
 - **Support Detection**: Shows how to check if haptic feedback is available on the current device
-- **Error Handling**: Implements proper error handling with the `HapticError` class
+- **Error Handling**: Catches and logs rejected `perform` calls
 
 ## System Requirements
 
@@ -21,8 +17,8 @@ This example app showcases all the core features of the macOS Haptics plugin:
 
 - **macOS**: 10.11 (OS X El Capitan) or later
 - **Hardware**: Force Touch trackpad or compatible haptic hardware
-- **Rust**: 1.77 or later (Rust 2021 edition)
-- **Tauri**: 2.9 or later
+- **Rust**: 1.98.1 or later (edition 2024)
+- **Tauri**: 2
 - **Node.js**: 24.19.0+ recommended
 
 ## Running the Example
@@ -34,7 +30,7 @@ The example uses [PNPM](https://pnpm.io) as the package manager. You can also us
 From the **root of the repository**:
 
 ```sh
-pnpm run-example
+pnpm example
 ```
 
 This command will:
@@ -146,7 +142,7 @@ if (supported) {
 - Configured for optimal Dark Mode support
 - Smooth animations for UI transitions
 
-### Tauri v2.9
+### Tauri v2
 - Native macOS integration
 - Small binary size with optimized build settings
 - Secure IPC between frontend and Rust backend
@@ -217,7 +213,7 @@ This grants access to:
 
 1. **Clean Build**: `cargo clean && pnpm tauri build`
 2. **Update Dependencies**: `cargo update && pnpm update`
-3. **Check Rust Version**: `rustc --version` (should be 1.77+)
+3. **Check Rust Version**: `rustc --version` (should be 1.98.1+)
 
 ## Contributing
 

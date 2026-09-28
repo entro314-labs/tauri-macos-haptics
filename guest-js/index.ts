@@ -133,14 +133,14 @@ export class HapticError extends Error {
 }
 
 /**
- * Checks if haptic feedback is supported on the current device.
+ * Checks if haptic feedback is supported on the current platform.
  *
  * This function caches the result after the first call for better performance.
- * Haptic feedback requires:
- * - macOS 10.11 (OS X El Capitan) or later
- * - Compatible haptic hardware (Force Touch trackpad)
+ * It reports platform support only: macOS has no public API to detect a
+ * Force Touch trackpad, so the result does not reflect the attached hardware.
  *
- * @returns A promise that resolves to `true` if haptic feedback is supported, `false` otherwise.
+ * @returns A promise that resolves to `true` on macOS with the plugin registered,
+ * `false` on other platforms or when the plugin command cannot be reached.
  *
  * @example
  * ```typescript
@@ -189,7 +189,8 @@ export async function isSupported(): Promise<boolean> {
  *
  * @returns A promise that resolves when the feedback has been queued
  *
- * @throws {HapticError} If the haptic feedback fails to perform
+ * @throws {HapticError} If `pattern` or `performanceTime` is not one of the enum values,
+ * the platform is not macOS, or the plugin command cannot be reached
  *
  * @example
  * ```typescript

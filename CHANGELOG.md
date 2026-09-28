@@ -196,6 +196,8 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 
 ### Fixed
 
+- `isSupported()` / `is_supported()` documentation now states that the result reflects platform support only; macOS offers no public API to detect a Force Touch trackpad, and the previous docs claimed hardware detection that never happened.
+- README and example README list the current requirements (Rust 1.98.1, edition 2024, Tauri 2), the correct install version (`3`), and the `pnpm example` script that actually exists.
 - `perform` now rejects a pattern or performance time outside the documented values (for example `perform(7)`) with an error instead of silently playing `Generic` feedback at the `Default` time. In JavaScript the call rejects with a `HapticError`.
 
 ## [3.2.3] - 2026-09-26
@@ -221,7 +223,7 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 ### Added
 - macOS trackpad haptic feedback: Rust commands plus the TypeScript bindings and types for triggering feedback patterns from a Tauri app. ([bfec38f](https://github.com/entro314-labs/tauri-macos-haptics/commit/bfec38f))
 ### Changed
-- The crate now requires Rust 1.97.1 or newer and builds on edition 2021; Node.js 24.19.0 or newer is recommended for the JavaScript package. ([d1fdba4](https://github.com/entro314-labs/tauri-macos-haptics/commit/d1fdba4), [1ac235c](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ac235c))
+- The crate now requires Rust 1.98.0 or newer and builds on edition 2024; Node.js 24.19.0 or newer is recommended for the JavaScript package. ([d1fdba4](https://github.com/entro314-labs/tauri-macos-haptics/commit/d1fdba4), [1ac235c](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ac235c))
 - The JavaScript package is now emitted with an `esnext` target, so consumers on older bundlers or runtimes may need to transpile it themselves. ([0e6cab4](https://github.com/entro314-labs/tauri-macos-haptics/commit/0e6cab4))
 - The documented setup example uses the current `tauri::Builder` registration syntax. ([a601f6d](https://github.com/entro314-labs/tauri-macos-haptics/commit/a601f6d))
 

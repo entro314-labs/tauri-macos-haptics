@@ -40,10 +40,13 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
 /// with OS X El Capitan version 10.11 (released in 2015). Modern Rust versions
 /// and Tauri applications typically run on much newer macOS versions.
 ///
+/// This reports platform support only. macOS has no public API to detect whether a
+/// Force Touch trackpad is present, so `true` does not guarantee the user feels feedback.
+///
 /// For non-macOS platforms, this always returns false.
 ///
 /// # Platform Notes
-/// - **macOS 10.11+**: Full haptic feedback support on compatible hardware
+/// - **macOS 10.11+**: Feedback is felt on haptic-capable hardware (Force Touch trackpad)
 /// - **Other platforms**: Not supported
 ///
 /// # Example
@@ -56,9 +59,9 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
 ///
 /// See [Apple's documentation](https://developer.apple.com/documentation/appkit/nshapticfeedbackmanager)
 pub fn is_supported() -> bool {
-    // NSHapticFeedbackManager was introduced with OS X El Capitan version 10.11
-    // Since this plugin requires Rust 1.77+ and Tauri 2.9+, which only run on
-    // modern systems, we can safely assume macOS 10.11+ is available.
+    // NSHapticFeedbackManager was introduced with OS X El Capitan version 10.11.
+    // Every macOS version supported by the Rust toolchain and Tauri 2 is newer,
+    // so macOS 10.11+ can be assumed.
     // The actual haptic feedback may still not occur if:
     // - The user isn't touching the trackpad
     // - The hardware doesn't support haptics
