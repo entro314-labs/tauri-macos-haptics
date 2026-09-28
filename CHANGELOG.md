@@ -1,192 +1,9 @@
-# CHANGELOG - Version 3.0.0
+# Changelog
 
-## Release Date
-July 16, 2026
-
-## Overview
-Toolchain and dependency modernization release. No user-facing API changes.
-
-## Changes
-
-### Minimum Requirements
-- **Rust**: 1.97.0 (edition 2024)
-
-### Dependencies
-- `objc2` 0.6.4, `objc2-app-kit` 0.3.2
-- Example app dependencies refreshed (Vite 8.1.5, TypeScript RC, Tailwind 4.3)
-
-### Fixes
-- Fixed the `init()` doc example so `cargo test --doc` passes (it previously
-  tried to compile `tauri::generate_context!` without a `tauri.conf.json`)
-- Resolved the `clippy::needless_doctest_main` warning
-
----
-
-# CHANGELOG - Version 2.0.1
-
-## Release Date
-February 1, 2026
-
-## Overview
-Major modernization update bringing the plugin up to date with the latest Tauri 2.9, Rust 1.77+, and modern macOS development practices.
-
-## Breaking Changes
-
-### Dependencies
-- **Migrated from `objc`/`cocoa` to `objc2` framework**
-  - The deprecated `cocoa` crate has been replaced with the modern `objc2` and `objc2-app-kit` crates
-  - This provides better type safety, improved memory management, and active maintenance
-
-### Minimum Requirements
-- **Rust**: Upgraded from 1.70 to 1.77+ (Rust 2021 edition)
-- **Tauri**: Upgraded from 2.0.0 to 2.9+
-- **macOS**: Still supports 10.11+ (no change)
-
-### API Changes
-- Internal type names have been modernized but backward-compatible aliases are provided
-- No changes required for user-facing TypeScript or Rust APIs
-
-## New Features
-
-### Enhanced TypeScript API
-- **New `HapticError` class**: Better error handling with typed error messages
-- **Improved JSDoc comments**: Comprehensive documentation for all functions and enums
-- **Better error propagation**: Errors now throw instead of silently logging
-
-### Improved Documentation
-- Extensive inline documentation in all Rust modules
-- Comprehensive README with usage examples
-- Detailed pattern and timing documentation
-- Clear usage guidelines from Apple's documentation
-
-## Improvements
-
-### Rust Codebase
-- ✅ Migrated to modern `objc2` framework (0.6) and `objc2-app-kit` (0.3)
-- ✅ Updated to Tauri 2.9.5 (from 2.0.0)
-- ✅ Updated to Rust 2021 edition with minimum version 1.77
-- ✅ Improved type safety throughout
-- ✅ Better error handling with proper Result types
-- ✅ Removed unnecessary unsafe blocks
-- ✅ Comprehensive inline documentation
-
-### TypeScript/JavaScript
-- ✅ Updated TypeScript to 5.7.3 (from 5.3.3)
-- ✅ Updated Rollup to 4.31.0 (from 4.9.6)
-- ✅ Updated @rollup/plugin-typescript to 12.1.3 (from 11.1.6)
-- ✅ Updated @tauri-apps/api to 2.2.0+ (from 2.0.1)
-- ✅ Added HapticError class for better error handling
-- ✅ Improved documentation throughout
-
-### Example Project
-- ✅ Updated all dependencies to latest versions
-- ✅ Updated Tauri to 2.9.6 (from 2.0.0)
-- ✅ Updated tauri-build to 2.5 (from 2.0.0)
-
-### Build System
-- ✅ Fixed Rollup configuration for modern plugin versions
-- ✅ Builds clean without warnings or errors
-- ✅ Release builds fully optimized
-
-## Migration Guide
-
-### For Rust Users
-No code changes required! The public API remains the same:
-
-```rust
-// Both old and new syntax work:
-use tauri_macos_haptics::haptics::*;
-
-// Modern (recommended):
-HapticFeedbackManager::default_performer()
-    .perform(HapticPattern::Generic, None)?;
-
-// Still works (backward compatible):
-HapticFeedbackManager::default_performer()
-    .perform(HapticPattern::Generic, None)?;
-```
-
-### For TypeScript Users
-Minimal changes - mostly improvements:
-
-```typescript
-// Old (still works):
-try {
-  await perform(HapticFeedbackPattern.Generic);
-} catch (error) {
-  console.error(error);
-}
-
-// New (recommended with HapticError):
-try {
-  await perform(HapticFeedbackPattern.Generic);
-} catch (error) {
-  if (error instanceof HapticError) {
-    console.error('Haptic feedback failed:', error.message);
-  }
-}
-```
-
-### Updating Dependencies
-
-In your `Cargo.toml`:
-```toml
-[dependencies]
-tauri = "2.9"  # Update from 2.0
-
-[target.'cfg(target_os = "macos")'.dependencies]
-tauri-plugin-macos-haptics = "2.0"  # Update from 1.0
-```
-
-In your `package.json`:
-```json
-{
-  "dependencies": {
-    "@tauri-apps/api": ">=2.2.0",
-    "tauri-plugin-macos-haptics-api": "2.0.0"
-  }
-}
-```
-
-Then run:
-```bash
-cargo update
-pnpm update  # or npm/yarn/bun
-```
-
-## Technical Details
-
-### objc2 Migration Details
-The migration from the legacy `objc`/`cocoa` crates to the modern `objc2` framework involved:
-
-1. **Type Safety**: Using `objc2`'s strongly-typed bindings instead of raw message sends
-2. **Memory Management**: Leveraging `Retained<>` for automatic reference counting
-3. **Protocol Support**: Using `ProtocolObject<dyn NSHapticFeedbackPerformer>` for protocol conformance
-4. **Modern Rust**: Eliminating unnecessary unsafe blocks where possible
-
-### Performance
-No performance regression - if anything, `objc2` provides slightly better performance due to:
-- Zero-cost abstractions
-- Better compiler optimizations
-- More efficient memory management
-
-## Testing
-All changes have been verified:
-- ✅ Rust codebase compiles without warnings
-- ✅ TypeScript builds successfully
-- ✅ Example project updated and tested
-- ✅ All three haptic patterns work correctly
-- ✅ All performance timing options work correctly
-
-## Acknowledgments
-Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for providing excellent Objective-C bindings for Rust.
-
-## Future Plans
-- Add comprehensive test suite
-- Add CI/CD workflows
-- Publish to crates.io and npm
-- Add more examples
-- Consider adding debug logging capabilities
+All notable changes to this project are documented here. The format is based on
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project follows
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html). The crate and the npm package
+share one version.
 
 ## [Unreleased]
 
@@ -203,12 +20,15 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 
 ### Changed
 
+- The published crate no longer contains the npm build files (`package.json`, pnpm lockfile and workspace file, `tsconfig.json`, `tsdown.config.ts`).
 - The crate depends on `tauri` with `default-features = false`, matching the official Tauri plugins, so it no longer turns Tauri's default features (including the `wry` runtime) back on in apps that disable them. The unused `serde` dependency was removed.
 
 ### Fixed
 
+- The crate is released on the same version as the npm package again. crates.io stayed at 3.1.0 through the 3.2.x releases, so the Rust MSRV change from 3.2.1 reaches crates.io with this release.
+- Windows and Linux builds of an app using the plugin no longer print unused-variable warnings from the plugin.
 - `isSupported()` / `is_supported()` documentation now states that the result reflects platform support only; macOS offers no public API to detect a Force Touch trackpad, and the previous docs claimed hardware detection that never happened.
-- README and example README list the current requirements (Rust 1.98.1, edition 2024, Tauri 2), the correct install version (`3`), and the `pnpm example` script that actually exists.
+- README and example README list the current requirements (Rust 1.98.1, edition 2024, Tauri 2), the correct install version, and the `pnpm example` script that actually exists.
 - `perform` now rejects a pattern or performance time outside the documented values (for example `perform(7)`) with an error instead of silently playing `Generic` feedback at the `Default` time. In JavaScript the call rejects with a `HapticError`.
 
 ## [3.2.3] - 2026-09-26
@@ -237,6 +57,35 @@ Thanks to the Tauri team for the 2.9 release and the `objc2` maintainers for pro
 - The crate now requires Rust 1.98.0 or newer and builds on edition 2024; Node.js 24.19.0 or newer is recommended for the JavaScript package. ([d1fdba4](https://github.com/entro314-labs/tauri-macos-haptics/commit/d1fdba4), [1ac235c](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ac235c))
 - The JavaScript package is now emitted with an `esnext` target, so consumers on older bundlers or runtimes may need to transpile it themselves. ([0e6cab4](https://github.com/entro314-labs/tauri-macos-haptics/commit/0e6cab4))
 - The documented setup example uses the current `tauri::Builder` registration syntax. ([a601f6d](https://github.com/entro314-labs/tauri-macos-haptics/commit/a601f6d))
+
+## [3.0.0] - 2026-07-16
+
+Toolchain and dependency release. No API changes.
+
+### Changed
+
+- Minimum Rust version 1.97.0, edition 2024.
+- `objc2` 0.6.4 and `objc2-app-kit` 0.3.2.
+
+### Fixed
+
+- The `init()` doc example compiles under `cargo test --doc`; it previously required a `tauri.conf.json`.
+- Resolved the `clippy::needless_doctest_main` warning.
+
+## [2.0.1] - 2026-02-01
+
+Modernization of the original `tauri-plugin-macos-haptics` for Tauri 2.
+
+### Changed
+
+- **Breaking:** migrated from the deprecated `objc`/`cocoa` crates to `objc2` 0.6 and `objc2-app-kit` 0.3.
+- **Breaking:** minimum Rust version 1.77 and Tauri 2.9.
+- `perform()` in JavaScript throws instead of only logging when feedback fails.
+
+### Added
+
+- `HapticError` class for failures from the JavaScript API.
+- JSDoc and Rust doc comments for every public item.
 
 [3.2.3]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.1...v3.2.2
