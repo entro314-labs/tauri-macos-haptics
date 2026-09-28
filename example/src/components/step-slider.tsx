@@ -20,7 +20,9 @@ export default function StepSlider(props: {
     const value = parseInt(target.value);
 
     if (isDragging() && (await isSupported()) && sliderValue() !== value) {
-      perform(HapticFeedbackPattern.Alignment, PerformanceTime.Now);
+      perform(HapticFeedbackPattern.Alignment, PerformanceTime.Now).catch((err) =>
+        console.error("Slider haptic error:", err)
+      );
     }
 
     setSliderValue(value);
