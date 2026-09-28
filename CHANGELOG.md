@@ -7,6 +7,8 @@ share one version.
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-09-28
+
 ### Changed (breaking)
 
 - Register the plugin on every platform (`[dependencies]`, `.plugin(tauri_macos_haptics::init())` without a `cfg` gate). On other platforms `isSupported()` resolves `false` from the backend and `perform()` rejects.
@@ -87,7 +89,11 @@ Modernization of the original `tauri-plugin-macos-haptics` for Tauri 2.
 - `HapticError` class for failures from the JavaScript API.
 - JSDoc and Rust doc comments for every public item.
 
+[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.3...v4.0.0
 [3.2.3]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.1...v3.2.2
 [3.2.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.0...v3.2.1
-[3.2.0]: https://github.com/entro314-labs/tauri-macos-haptics/releases/tag/v3.2.0
+[3.2.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.0.0...v3.2.0
+[3.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v2.0.1...v3.0.0
+[2.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/releases/tag/v2.0.1
