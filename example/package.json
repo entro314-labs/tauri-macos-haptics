@@ -14,7 +14,7 @@
   "dependencies": {
     "@solidjs/router": "^1.0.0",
     "@solidjs/start": "^2.0.5",
-    "@tauri-apps/api": "2.12.0",
+    "@tauri-apps/api": "2.12.1",
     "@tauri-apps/plugin-shell": "2.4.0",
     "solid-js": "^1.9.15",
     "tailwindcss": "^4.3.3",
@@ -22,13 +22,13 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@tauri-apps/cli": "2.12.0",
+    "@tauri-apps/cli": "2.12.1",
     "@types/node": "^26.6.3",
     "nitro": "3.0.260903-beta",
     "prettier": "^3.9.9",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "next",
-    "vite": "^8.3.1",
+    "vite": "^8.3.2",
     "vite-plugin-solid": "^2.11.14"
   }
 }

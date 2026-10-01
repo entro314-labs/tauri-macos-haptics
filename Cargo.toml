@@ -10,7 +10,7 @@ readme = "README.md"
 keywords = ["tauri", "macos", "haptics", "taptic", "plugin"]
 categories = ["os::macos-apis", "gui", "api-bindings"]
 edition = "2024"
-rust-version = "1.98.1"
+rust-version = "1.99.0"
 exclude = [
   "/.github",
   "/example",
