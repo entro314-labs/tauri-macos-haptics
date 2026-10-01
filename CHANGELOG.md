@@ -7,6 +7,12 @@ share one version.
 
 ## [Unreleased]
 
+## [4.0.2] - 2026-10-01
+
+### Changed
+
+- The Rust crate now requires Rust 1.99.0 or newer (minimum supported Rust version raised from 1.98.1). ([be9999c](https://github.com/entro314-labs/tauri-macos-haptics/commit/be9999c))
+
 ## [4.0.1] - 2026-09-28
 
 ### Fixed
@@ -96,7 +102,8 @@ Modernization of the original `tauri-plugin-macos-haptics` for Tauri 2.
 - `HapticError` class for failures from the JavaScript API.
 - JSDoc and Rust doc comments for every public item.
 
-[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.1...HEAD
+[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.2...HEAD
+[4.0.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.3...v4.0.0
 [3.2.3]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.2...v3.2.3

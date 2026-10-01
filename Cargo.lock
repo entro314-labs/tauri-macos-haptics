@@ -3150,7 +3150,7 @@ dependencies = [
 
 [[package]]
 name = "tauri-macos-haptics"
-version = "4.0.1"
+version = "4.0.2"
 dependencies = [
  "objc2",
  "objc2-app-kit",
