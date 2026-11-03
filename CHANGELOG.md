@@ -7,6 +7,87 @@ share one version.
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-11-03
+
+### ⚠ BREAKING CHANGES
+
+- isSupported() rejects instead of resolving false when ([782515a](https://github.com/entro314-labs/tauri-macos-haptics/commit/782515a))
+- HapticFeedbackManager::perform returns () instead of ([157186f](https://github.com/entro314-labs/tauri-macos-haptics/commit/157186f))
+
+### Features
+
+- register the plugin on every platform and surface failed support checks ([782515a](https://github.com/entro314-labs/tauri-macos-haptics/commit/782515a))
+- keep the IPC error as HapticError's cause ([c1b0079](https://github.com/entro314-labs/tauri-macos-haptics/commit/c1b0079))
+- add macOS haptics support with commands and types ([bfec38f](https://github.com/entro314-labs/tauri-macos-haptics/commit/bfec38f))
+
+### Bug Fixes
+
+- **example:** set a Content Security Policy ([61175e4](https://github.com/entro314-labs/tauri-macos-haptics/commit/61175e4))
+- **example:** line the slider steps and value bubble up with the thumb ([af48d1b](https://github.com/entro314-labs/tauri-macos-haptics/commit/af48d1b))
+- **example:** follow the system dark mode and unclutter the slider ([bfe318d](https://github.com/entro314-labs/tauri-macos-haptics/commit/bfe318d))
+- **example:** apply the release profile and drop unused crates ([90b6ce3](https://github.com/entro314-labs/tauri-macos-haptics/commit/90b6ce3))
+- **commands:** build warning-free on non-macOS targets ([c0a3091](https://github.com/entro314-labs/tauri-macos-haptics/commit/c0a3091))
+- **release:** put the crate back on the npm package's version line ([f5664ed](https://github.com/entro314-labs/tauri-macos-haptics/commit/f5664ed))
+- **example:** handle rejected slider haptics like the other controls ([46e5cec](https://github.com/entro314-labs/tauri-macos-haptics/commit/46e5cec))
+- **example:** use the local JS bindings instead of the npm release ([01bee67](https://github.com/entro314-labs/tauri-macos-haptics/commit/01bee67))
+- **example:** migrate to SolidStart 2 so the example builds again ([f09f5f4](https://github.com/entro314-labs/tauri-macos-haptics/commit/f09f5f4))
+- **deps:** stop forcing tauri default features and drop unused serde ([12e47f0](https://github.com/entro314-labs/tauri-macos-haptics/commit/12e47f0))
+- **commands:** reject unknown haptic pattern and timing values ([3b6a1a2](https://github.com/entro314-labs/tauri-macos-haptics/commit/3b6a1a2))
+- **build:** point dts generation at typescript@next's tsgo binary ([6e19101](https://github.com/entro314-labs/tauri-macos-haptics/commit/6e19101))
+- update Rust version to 1.77+ and change edition to 2021 in documentation and configuration files ([d1fdba4](https://github.com/entro314-labs/tauri-macos-haptics/commit/d1fdba4))
+- update package metadata and set publish to false in example Cargo.toml ([e27bc2d](https://github.com/entro314-labs/tauri-macos-haptics/commit/e27bc2d))
+
+### Dependencies
+
+- **deps:** update npm and Cargo dependencies across root and example ([0766f02](https://github.com/entro314-labs/tauri-macos-haptics/commit/0766f02))
+- **deps:** remove unused @tailwindcss/postcss from the plugin package ([c8157ce](https://github.com/entro314-labs/tauri-macos-haptics/commit/c8157ce))
+- **deps:** update Tauri JS packages to 2.12 ([5348522](https://github.com/entro314-labs/tauri-macos-haptics/commit/5348522))
+- **deps:** update JS dependencies and track TypeScript next ([a680085](https://github.com/entro314-labs/tauri-macos-haptics/commit/a680085))
+
+### Documentation
+
+- **changelog:** lead the unreleased notes with the breaking changes ([11273be](https://github.com/entro314-labs/tauri-macos-haptics/commit/11273be))
+- **changelog:** consolidate into one Keep a Changelog file ([d6c1d6b](https://github.com/entro314-labs/tauri-macos-haptics/commit/d6c1d6b))
+- document the test commands and the example's install step ([86759bd](https://github.com/entro314-labs/tauri-macos-haptics/commit/86759bd))
+- **example:** add the example's own install step to the manual setup ([4cf3664](https://github.com/entro314-labs/tauri-macos-haptics/commit/4cf3664))
+- correct support-detection claims and stale requirements ([12f918a](https://github.com/entro314-labs/tauri-macos-haptics/commit/12f918a))
+
+### Code Refactoring
+
+- **example:** position traffic lights natively and drop tauri-plugin-decorum ([4c9e6ab](https://github.com/entro314-labs/tauri-macos-haptics/commit/4c9e6ab))
+- make Rust perform infallible and default to system timing ([157186f](https://github.com/entro314-labs/tauri-macos-haptics/commit/157186f))
+- update example in lib.rs to use new tauri::Builder syntax ([a601f6d](https://github.com/entro314-labs/tauri-macos-haptics/commit/a601f6d))
+- replace Rollup configuration with tsdown for building TypeScript project ([58e5ba1](https://github.com/entro314-labs/tauri-macos-haptics/commit/58e5ba1))
+
+### Continuous Integration
+
+- check the crate and JS bindings on macOS and Windows ([1ce5e46](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ce5e46))
+
+### Tests
+
+- cover the JS bindings' IPC contract with node:test ([d30fe35](https://github.com/entro314-labs/tauri-macos-haptics/commit/d30fe35))
+
+### Styles
+
+- **example:** apply the example's Prettier config ([ff3218c](https://github.com/entro314-labs/tauri-macos-haptics/commit/ff3218c))
+
+### Miscellaneous Chores
+
+- update @tauri-apps/api and related dependencies ([be9999c](https://github.com/entro314-labs/tauri-macos-haptics/commit/be9999c))
+- **example:** sync Cargo.lock with the 4.0.0 plugin crate ([7f55b03](https://github.com/entro314-labs/tauri-macos-haptics/commit/7f55b03))
+- keep the CI workflow out of the published crate ([84f4a6b](https://github.com/entro314-labs/tauri-macos-haptics/commit/84f4a6b))
+- track Cargo.lock for the crate and the example ([9d54f6b](https://github.com/entro314-labs/tauri-macos-haptics/commit/9d54f6b))
+- **example:** regenerate Tauri ACL schemas without decorum ([333884b](https://github.com/entro314-labs/tauri-macos-haptics/commit/333884b))
+- **example:** drop the orphaned vite-env.d.ts and tests include ([9eb573e](https://github.com/entro314-labs/tauri-macos-haptics/commit/9eb573e))
+- keep the npm build files out of the published crate ([decee69](https://github.com/entro314-labs/tauri-macos-haptics/commit/decee69))
+- keep the JS test suite out of the published crate ([ffb5c35](https://github.com/entro314-labs/tauri-macos-haptics/commit/ffb5c35))
+- updated various packages to newer versions ([7cb0c52](https://github.com/entro314-labs/tauri-macos-haptics/commit/7cb0c52))
+- update rust-version to 1.97.1 and Node.js recommendation to 24.19.0+ ([1ac235c](https://github.com/entro314-labs/tauri-macos-haptics/commit/1ac235c))
+- bump version to 2.0.5 and update dependencies in package.json and pnpm-lock.yaml ([b545b8e](https://github.com/entro314-labs/tauri-macos-haptics/commit/b545b8e))
+- update deps in rust and js packages ([7feb6ae](https://github.com/entro314-labs/tauri-macos-haptics/commit/7feb6ae))
+- update TypeScript target to esnext and add new files ([0e6cab4](https://github.com/entro314-labs/tauri-macos-haptics/commit/0e6cab4))
+- bump version to 2.0.1 in Cargo.toml ([a4c944d](https://github.com/entro314-labs/tauri-macos-haptics/commit/a4c944d))
+
 ## [4.0.2] - 2026-10-01
 
 ### Changed
@@ -102,13 +183,14 @@ Modernization of the original `tauri-plugin-macos-haptics` for Tauri 2.
 - `HapticError` class for failures from the JavaScript API.
 - JSDoc and Rust doc comments for every public item.
 
-[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.2...HEAD
-[4.0.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.1...v4.0.2
-[4.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v4.0.0...v4.0.1
-[4.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.3...v4.0.0
-[3.2.3]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.2...v3.2.3
-[3.2.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.1...v3.2.2
-[3.2.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.2.0...v3.2.1
-[3.2.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v3.0.0...v3.2.0
-[3.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/v2.0.1...v3.0.0
-[2.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/releases/tag/v2.0.1
+[Unreleased]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@5.0.0...HEAD
+[5.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@4.0.2...tauri-macos-haptics-api@5.0.0
+[4.0.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@4.0.1...tauri-macos-haptics-api@4.0.2
+[4.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@4.0.0...tauri-macos-haptics-api@4.0.1
+[4.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@3.2.3...tauri-macos-haptics-api@4.0.0
+[3.2.3]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@3.2.2...tauri-macos-haptics-api@3.2.3
+[3.2.2]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@3.2.1...tauri-macos-haptics-api@3.2.2
+[3.2.1]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@3.2.0...tauri-macos-haptics-api@3.2.1
+[3.2.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@3.0.0...tauri-macos-haptics-api@3.2.0
+[3.0.0]: https://github.com/entro314-labs/tauri-macos-haptics/compare/tauri-macos-haptics-api@2.0.1...tauri-macos-haptics-api@3.0.0
+[2.0.1]: https://github.com/entro314-labs/tauri-macos-haptics/releases/tag/tauri-macos-haptics-api@2.0.1
