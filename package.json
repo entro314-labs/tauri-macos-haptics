@@ -48,10 +48,10 @@
     "example:build": "pnpm run build && cd example && pnpm tauri build"
   },
   "dependencies": {
-    "@tauri-apps/api": "^2.12.4"
+    "@tauri-apps/api": "^2.12.5"
   },
   "devDependencies": {
-    "tsdown": "^0.23.4",
+    "tsdown": "^0.23.7",
     "typescript": "next"
   }
 }
